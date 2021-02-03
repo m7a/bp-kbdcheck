@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /*
- * Ma_Sys.ma Keyboard Check Application 1.0.1, Copyright (c) 2019 Ma_Sys.ma.
+ * Ma_Sys.ma Keyboard Check Application 1.0.0, Copyright (c) 2019 Ma_Sys.ma.
  * For further info send an e-mail to Ma_Sys.ma@web.de
  */
 public class KBDCheck extends JFrame {
@@ -19,9 +19,9 @@ public class KBDCheck extends JFrame {
 
 	private static class RegisteredEvent {
 
-		KeyChange kc;
-		long t;
-		KeyEvent ev;
+		final KeyChange kc;
+		final long t;
+		final KeyEvent ev;
 
 		long deltaT;
 
@@ -33,9 +33,6 @@ public class KBDCheck extends JFrame {
 		}
 
 	}
-
-	private RegisteredEvent[] events = new RegisteredEvent[4096];
-	private int eventIdx = 0;
 
 	// large buffer size
 	private final ArrayBlockingQueue<RegisteredEvent> queue =
@@ -54,9 +51,6 @@ public class KBDCheck extends JFrame {
 
 		buf = "________________________________________".toCharArray();
 
-		for(int i = 0; i < events.length; i++)
-			events[i] = new RegisteredEvent(null, null);
-
 		Container cp = getContentPane();
 		cp.setLayout(new FlowLayout(FlowLayout.LEFT));
 		cp.add(new JLabel("Input:"));
@@ -66,13 +60,8 @@ public class KBDCheck extends JFrame {
 			@Override
 			public void keyTyped(KeyEvent ev) {
 				try {
-					events[eventIdx].t = System.nanoTime();
-					events[eventIdx].kc = KeyChange.PRESS;
-					events[eventIdx].ev = ev;
-					queue.put(events[eventIdx]);
-					// unchecked ringbuffering...
-					eventIdx = (eventIdx + 1) %
-								events.length;
+					queue.put(new RegisteredEvent(
+							KeyChange.PRESS, ev));
 				} catch(InterruptedException ex) {
 					throw new RuntimeException(ex);
 				}
@@ -81,12 +70,8 @@ public class KBDCheck extends JFrame {
 			@Override
 			public void keyPressed(KeyEvent ev) {
 				try {
-					events[eventIdx].t = System.nanoTime();
-					events[eventIdx].kc = KeyChange.DOWN;
-					events[eventIdx].ev = ev;
-					queue.put(events[eventIdx]);
-					eventIdx = (eventIdx + 1) %
-								events.length;
+					queue.put(new RegisteredEvent(
+							KeyChange.DOWN, ev));
 				} catch(InterruptedException ex) {
 					throw new RuntimeException(ex);
 				}
@@ -95,12 +80,8 @@ public class KBDCheck extends JFrame {
 			@Override
 			public void keyReleased(KeyEvent ev) {
 				try {
-					events[eventIdx].t = System.nanoTime();
-					events[eventIdx].kc = KeyChange.UP;
-					events[eventIdx].ev = ev;
-					queue.put(events[eventIdx]);
-					eventIdx = (eventIdx + 1) %
-								events.length;
+					queue.put(new RegisteredEvent(
+							KeyChange.UP, ev));
 				} catch(InterruptedException ex) {
 					throw new RuntimeException(ex);
 				}
