@@ -7,7 +7,7 @@ lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["kbd", "keyboard", "hardware", "java", "check", "chatter"]
 x-masysma-version: 1.0.0
-x-masysma-repository: https://www.github.com/m7a/bp-kbdcheck.git
+x-masysma-repository: https://www.github.com/m7a/bp-kbdcheck
 x-masysma-website: https://masysma.lima-city.de/32/kbdcheck.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
@@ -88,10 +88,9 @@ Observe that
 
  * All characters are first released before the next one is pressed.
    Hence times (1) and (3) match.
- * Note the large times between the individual key presses which are well above
-   100ms.
- * Observe that the PRESS message precedes the DOWNUP message for the same
-   key.
+ * there are large times between the individual key presses which (well above
+   100ms).
+ * the PRESS message precedes the DOWNUP message for the same key.
 
 ## Fast Typing (Razer Huntsman)
 
