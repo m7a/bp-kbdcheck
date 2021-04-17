@@ -1,7 +1,7 @@
 ---
 section: 32
 x-masysma-name: kbdcheck
-title: Ma_Sys.ma KDB Check
+title: Ma_Sys.ma KBD Check
 date: 2021/03/28 22:36:01
 lang: en-US
 author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
@@ -240,6 +240,26 @@ to build a runnable jarfile `kdb_check.jar` and
 	$ ant clean
 
 to cleanup the workspace.
+
+License
+=======
+
+	Ma_Sys.ma Keyboard Check Application 1.0.0,
+	Copyright (c) 2019, 2021 Ma_Sys.ma.
+	For further info send an e-mail to Ma_Sys.ma@web.de.
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 See Also
 ========
