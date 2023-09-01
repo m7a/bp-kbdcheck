@@ -8,7 +8,7 @@ author: ["Linux-Fan, Ma_Sys.ma (Ma_Sys.ma@web.de)"]
 keywords: ["kbd", "keyboard", "hardware", "java", "check", "chatter"]
 x-masysma-version: 1.0.0
 x-masysma-repository: https://www.github.com/m7a/bp-kbdcheck
-x-masysma-website: https://masysma.lima-city.de/32/kbdcheck.xhtml
+x-masysma-website: https://masysma.net/32/kbdcheck.xhtml
 x-masysma-owned: 1
 x-masysma-copyright: |
   Copyright (c) 2019, 2021 Ma_Sys.ma.
